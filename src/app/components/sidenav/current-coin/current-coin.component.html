@@ -1,0 +1,13 @@
+<div class="current-coin-cointainer">
+  <div class="coin-select-wrapper">
+    <mat-form-field>
+      <mat-label>Select Coin</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let coin of coinData">{{ coin.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div>
+    <app-chart></app-chart>
+  </div>
+</div>

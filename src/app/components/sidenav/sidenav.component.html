@@ -1,0 +1,11 @@
+<app-navbar (toggled)="OnToggled()"></app-navbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav [(opened)]="opened">
+    <a>test</a>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="sidenav-content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
