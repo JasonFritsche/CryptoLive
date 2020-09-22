@@ -2,12 +2,17 @@
   <div class="coin-select-wrapper">
     <mat-form-field>
       <mat-label>Select Coin</mat-label>
-      <mat-select>
-        <mat-option *ngFor="let coin of coinData">{{ coin.name }}</mat-option>
+      <mat-select
+        [ngModel]="selectedValue"
+        (ngModelChange)="onSelectionChange($event)"
+      >
+        <mat-option *ngFor="let coin of coinListData" [value]="coin.id">{{
+          coin.name
+        }}</mat-option>
       </mat-select>
     </mat-form-field>
   </div>
-  <div>
-    <app-chart></app-chart>
+  <div class="current-chart-wrapper">
+    <app-chart [currentCoinData]="currentCoinData"></app-chart>
   </div>
 </div>

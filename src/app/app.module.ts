@@ -1,12 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatCardModule } from '@angular/material/card';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 
@@ -28,6 +30,7 @@ import { ChartComponent } from './components/chart/chart.component';
   ],
   imports: [
     HighchartsChartModule,
+    MatCardModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
@@ -37,6 +40,7 @@ import { ChartComponent } from './components/chart/chart.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
