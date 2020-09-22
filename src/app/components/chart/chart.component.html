@@ -1,5 +1,17 @@
-<highcharts-chart
-  [Highcharts]="Highcharts"
-  [options]="chartOptions"
-  style="width: 100%; height: 400px; display: block"
-></highcharts-chart>
+<div
+  id="container"
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  "
+>
+  <highcharts-chart
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    [(update)]="updateChart"
+    [oneToOne]="true"
+  >
+  </highcharts-chart>
+</div>

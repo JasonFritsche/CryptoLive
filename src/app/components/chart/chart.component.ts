@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
+import { Options } from 'highcharts';
 
 @Component({
   selector: 'app-chart',
@@ -7,16 +8,37 @@ import * as Highcharts from 'highcharts';
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
+  @Input() currentCoinData: any;
+  public chartData = [];
   Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {
+  chartOptions: Options = {
+    title: {
+      text: 'Current Coin',
+    },
     series: [
       {
-        data: [1, 2, 3],
         type: 'line',
+        data: this.chartData,
       },
     ],
   };
+  updateChart: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
+  ngOnChanges() {
+    if (this.currentCoinData.history !== undefined) {
+      this.chartData = [...this.currentCoinData.history.map(Number)];
+      this.chartOptions.title = {
+        text: this.currentCoinData.name,
+      };
+      this.chartOptions.series = [
+        {
+          type: 'line',
+          data: this.chartData,
+        },
+      ];
+      this.updateChart = true;
+    }
+  }
 }
