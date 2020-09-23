@@ -10,24 +10,33 @@ import { CoinService } from 'src/app/services/coin.service';
 export class CurrentCoinComponent implements OnInit {
   public selectedValue = '';
   public coinListData: Array<any> = [];
-  public currentCoinData: object = {};
+  public currentCoinData: any = {};
+  public selectedCoinData: any = {};
+  public selectedCoindId: number = null;
 
   constructor(private coinService: CoinService) {}
 
   ngOnInit(): void {
-    this._getCoinData();
+    this.coinService.currentCoinData().subscribe((res) => {
+      this.currentCoinData = { ...res };
+      this.updateChartData();
+      this._getCoinData();
+    });
   }
 
   private _getCoinData(): void {
-    this.coinService.getCoinDataList().subscribe((coins) => {
-      this.coinListData.push(...coins);
-    });
+    this.coinListData.push(...this.currentCoinData.data.coins);
   }
 
   public onSelectionChange(coinId: number): void {
-    this.coinService.getCoinData(coinId).subscribe((res) => {
-      this.currentCoinData = { ...res.data.coin };
-      console.log(res.data.coin);
-    });
+    this.selectedCoindId = coinId;
+  }
+
+  public updateChartData() {
+    if (this.selectedCoindId !== null) {
+      this.selectedCoinData = this.coinListData.find(
+        (coin) => coin.id === this.selectedCoindId
+      );
+    }
   }
 }

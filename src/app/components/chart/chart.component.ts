@@ -8,7 +8,7 @@ import { Options } from 'highcharts';
   styleUrls: ['./chart.component.scss'],
 })
 export class ChartComponent implements OnInit {
-  @Input() currentCoinData: any;
+  @Input() selectedCoinData: any;
   public chartData = [];
   Highcharts: typeof Highcharts = Highcharts;
   chartOptions: Options = {
@@ -27,10 +27,10 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(): void {}
   ngOnChanges() {
-    if (this.currentCoinData.history !== undefined) {
-      this.chartData = [...this.currentCoinData.history.map(Number)];
+    if (this.selectedCoinData.history !== undefined) {
+      this.chartData = [...this.selectedCoinData.history.map(Number)];
       this.chartOptions.title = {
-        text: this.currentCoinData.name,
+        text: this.selectedCoinData.name,
       };
       this.chartOptions.series = [
         {

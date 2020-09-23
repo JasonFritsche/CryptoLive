@@ -1,34 +1,34 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, Subject, timer } from 'rxjs';
+import { map, retry, share, switchMap, takeUntil } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoinService {
-  constructor(private http: HttpClient) {}
   private coinsApiUrl: string = 'https://api.coinranking.com/v1/public/coins';
-  private coinApiUrl: string = 'https://api.coinranking.com/v1/public/coin/';
+  private currentCoinData$: Observable<any>;
+  private stopPolling = new Subject();
 
-  private _currentCoinSubject = new Subject<number>();
-
-  public currentCoin$ = this._currentCoinSubject.asObservable();
-
-  public getCoinDataList() {
-    return this.http.get<any>(this.coinsApiUrl).pipe(
-      map((result) => {
-        return result.data.coins;
-      })
+  constructor(private http: HttpClient) {
+    this.currentCoinData$ = timer(1, 3000).pipe(
+      switchMap(() => this.http.get<any>(`${this.coinsApiUrl}`)),
+      retry(),
+      share(),
+      takeUntil(this.stopPolling)
     );
   }
 
-  public getCoinData(coinId: number) {
-    this.currentCoinChanged(coinId);
-    return this.http.get<any>(`${this.coinApiUrl}${coinId}?timePeriod=24h`);
+  ngOnInit() {}
+
+  public currentCoinData(): Observable<any> {
+    return this.currentCoinData$;
   }
 
-  public currentCoinChanged(coinId: number) {
-    this._currentCoinSubject.next(coinId);
+  public getCoinData() {}
+
+  ngOnDestroy() {
+    this.stopPolling.next();
   }
 }
