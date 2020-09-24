@@ -1,0 +1,9 @@
+.coin-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  app-coin-card {
+    width: 80%;
+    margin: 0.2em 0 0.05em 0;
+  }
+}
