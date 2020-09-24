@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CurrentCoinComponent } from './components/sidenav/current-coin/current-coin.component';
+import { HomeComponent } from './components/sidenav/home/home.component';
 
 const routes: Routes = [
+  { path: 'Home', component: HomeComponent },
   { path: 'Latest', component: CurrentCoinComponent },
-  { path: '', redirectTo: '/Latest', pathMatch: 'full' },
+  { path: '', redirectTo: '/Home', pathMatch: 'full' },
 ];
 
 @NgModule({

@@ -19,6 +19,8 @@ import { SidenavComponent } from '../app/components/sidenav/sidenav.component';
 import { NavbarComponent } from './components/sidenav/navbar/navbar.component';
 import { CurrentCoinComponent } from './components/sidenav/current-coin/current-coin.component';
 import { ChartComponent } from './components/chart/chart.component';
+import { HomeComponent } from './components/sidenav/home/home.component';
+import { CoinCardComponent } from './components/sidenav/home/coin-card/coin-card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { ChartComponent } from './components/chart/chart.component';
     NavbarComponent,
     CurrentCoinComponent,
     ChartComponent,
+    HomeComponent,
+    CoinCardComponent,
   ],
   imports: [
     HighchartsChartModule,
