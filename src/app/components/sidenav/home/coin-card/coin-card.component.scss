@@ -1,3 +1,18 @@
 mat-card {
   width: 100%;
+  background-color: #1f2938;
+}
+
+.coin-card-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.coin-symbol {
+  color: #8eb7f5;
+}
+
+.coin-price {
+  color: #a4f5b1;
 }
