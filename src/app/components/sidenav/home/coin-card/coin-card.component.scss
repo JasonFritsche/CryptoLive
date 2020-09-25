@@ -1,12 +1,14 @@
 mat-card {
   width: 100%;
   background-color: #1f2938;
+  height: 2.7em;
 }
 
 .coin-card-wrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 0.7em;
 }
 
 .coin-symbol {
