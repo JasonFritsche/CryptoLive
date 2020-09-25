@@ -1,10 +1,34 @@
-<mat-card
-  ><div class="coin-card-wrapper">
-    <div class="coin-symbol">
-      <h1>{{ coinSymbol }}</h1>
-    </div>
-    <div class="coin-price">
-      <h1>{{ coinPrice }}</h1>
-    </div>
-  </div></mat-card
+<table
+  mat-table
+  *ngIf="currentCoinData.length > 0"
+  [dataSource]="dataSource"
+  matSort
+  class="mat-elevation-z8"
 >
+  <!-- Position Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>name</th>
+    <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>price</th>
+    <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>symbol</th>
+    <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="volume">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>volume</th>
+    <td mat-cell *matCellDef="let element">{{ element.volume }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

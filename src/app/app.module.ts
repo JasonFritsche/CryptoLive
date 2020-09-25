@@ -8,7 +8,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { MatCardModule } from '@angular/material/card';
+import { MatTableModule } from '@angular/material/table';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 
@@ -34,7 +34,7 @@ import { CoinCardComponent } from './components/sidenav/home/coin-card/coin-card
   ],
   imports: [
     HighchartsChartModule,
-    MatCardModule,
+    MatTableModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
