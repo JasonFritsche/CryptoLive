@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 import { CoinService } from 'src/app/services/coin.service';
 
 @Component({
@@ -9,8 +8,7 @@ import { CoinService } from 'src/app/services/coin.service';
 })
 export class CurrentCoinComponent implements OnInit {
   public selectedValue = '';
-  public coinListData: Array<any> = [];
-  public currentCoinData: any = {};
+  public currentCoinData: any = [];
   public selectedCoinData: any = {};
   public selectedCoindId: number = null;
 
@@ -18,14 +16,10 @@ export class CurrentCoinComponent implements OnInit {
 
   ngOnInit(): void {
     this.coinService.currentCoinData().subscribe((res) => {
-      this.currentCoinData = { ...res };
+      console.log(res);
+      this.currentCoinData = res;
       this.updateChartData();
-      this._getCoinData();
     });
-  }
-
-  private _getCoinData(): void {
-    this.coinListData.push(...this.currentCoinData.data.coins);
   }
 
   public onSelectionChange(coinId: number): void {
@@ -34,7 +28,7 @@ export class CurrentCoinComponent implements OnInit {
 
   public updateChartData() {
     if (this.selectedCoindId !== null) {
-      this.selectedCoinData = this.coinListData.find(
+      this.selectedCoinData = this.currentCoinData.find(
         (coin) => coin.id === this.selectedCoindId
       );
     }

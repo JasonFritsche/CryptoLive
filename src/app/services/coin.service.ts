@@ -12,8 +12,12 @@ export class CoinService {
   private stopPolling = new Subject();
 
   constructor(private http: HttpClient) {
-    this.currentCoinData$ = timer(1, 60000).pipe(
-      switchMap(() => this.http.get<any>(`${this.coinsApiUrl}`)),
+    this.currentCoinData$ = timer(1, 2000).pipe(
+      switchMap(() =>
+        this.http
+          .get<any>(`${this.coinsApiUrl}`)
+          .pipe(map((res) => res.data.coins))
+      ),
       retry(),
       share(),
       takeUntil(this.stopPolling)
