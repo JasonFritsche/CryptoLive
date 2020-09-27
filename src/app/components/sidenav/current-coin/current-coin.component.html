@@ -6,7 +6,7 @@
         [ngModel]="selectedValue"
         (ngModelChange)="onSelectionChange($event)"
       >
-        <mat-option *ngFor="let coin of coinListData" [value]="coin.id">{{
+        <mat-option *ngFor="let coin of currentCoinData" [value]="coin.id">{{
           coin.name
         }}</mat-option>
       </mat-select>

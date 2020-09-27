@@ -9,8 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class CoinCardComponent implements OnInit, AfterViewInit {
   public currentCoinData: any = [];
-  public displayedColumns: string[] = ['name', 'price', 'symbol', 'volume'];
-  public dataSource;
+  public displayedColumns: string[] = ['name', 'volume', 'price'];
   public volume: number;
   public symbol: string;
   public price: string;
@@ -19,11 +18,8 @@ export class CoinCardComponent implements OnInit, AfterViewInit {
   constructor(private coinService: CoinService) {}
 
   ngOnInit(): void {
-    console.log(this.currentCoinData.length);
-    this.coinService.currentCoinData().subscribe((res) => {
-      this.currentCoinData = [...res.data.coins];
-      this.dataSource = new MatTableDataSource(this.currentCoinData);
-      console.log(this.currentCoinData);
+    this.coinService.currentCoinData().subscribe((coins) => {
+      this.currentCoinData = coins;
     });
   }
 
