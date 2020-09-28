@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CoinService } from 'src/app/services/coin.service';
 
 @Component({
   selector: 'app-home',

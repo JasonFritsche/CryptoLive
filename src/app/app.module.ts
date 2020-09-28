@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 
@@ -20,7 +21,7 @@ import { NavbarComponent } from './components/sidenav/navbar/navbar.component';
 import { CurrentCoinComponent } from './components/sidenav/current-coin/current-coin.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { HomeComponent } from './components/sidenav/home/home.component';
-import { CoinCardComponent } from './components/sidenav/home/coin-card/coin-card.component';
+import { CoinTableComponent } from './components/sidenav/home/coin-card/coin-table.component';
 import { ValueChangeDirective } from './directives/value-change.directive';
 
 @NgModule({
@@ -31,7 +32,7 @@ import { ValueChangeDirective } from './directives/value-change.directive';
     CurrentCoinComponent,
     ChartComponent,
     HomeComponent,
-    CoinCardComponent,
+    CoinTableComponent,
     ValueChangeDirective,
   ],
   imports: [
@@ -42,6 +43,7 @@ import { ValueChangeDirective } from './directives/value-change.directive';
     MatIconModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,

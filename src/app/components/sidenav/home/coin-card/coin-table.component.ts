@@ -1,13 +1,12 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { CoinService } from 'src/app/services/coin.service';
-import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
-  selector: 'app-coin-card',
-  templateUrl: './coin-card.component.html',
-  styleUrls: ['./coin-card.component.scss'],
+  selector: 'app-coin-table',
+  templateUrl: './coin-table.component.html',
+  styleUrls: ['./coin-table.component.scss'],
 })
-export class CoinCardComponent implements OnInit, AfterViewInit {
+export class CoinTableComponent implements OnInit, AfterViewInit {
   public currentCoinData: any = [];
   public displayedColumns: string[] = [
     'icon',
