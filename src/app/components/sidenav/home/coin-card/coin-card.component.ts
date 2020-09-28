@@ -9,17 +9,26 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class CoinCardComponent implements OnInit, AfterViewInit {
   public currentCoinData: any = [];
-  public displayedColumns: string[] = ['name', 'volume', 'price'];
+  public displayedColumns: string[] = [
+    'icon',
+    'name',
+    'volume',
+    'price',
+    'change',
+  ];
   public volume: number;
   public symbol: string;
   public price: string;
   public name: string;
+  public iconUrl: string;
+  public change: number;
 
   constructor(private coinService: CoinService) {}
 
   ngOnInit(): void {
     this.coinService.currentCoinData().subscribe((coins) => {
       this.currentCoinData = coins;
+      console.log(this.currentCoinData);
     });
   }
 
