@@ -21,6 +21,7 @@ import { CurrentCoinComponent } from './components/sidenav/current-coin/current-
 import { ChartComponent } from './components/chart/chart.component';
 import { HomeComponent } from './components/sidenav/home/home.component';
 import { CoinCardComponent } from './components/sidenav/home/coin-card/coin-card.component';
+import { ValueChangeDirective } from './directives/value-change.directive';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { CoinCardComponent } from './components/sidenav/home/coin-card/coin-card
     ChartComponent,
     HomeComponent,
     CoinCardComponent,
+    ValueChangeDirective,
   ],
   imports: [
     HighchartsChartModule,
