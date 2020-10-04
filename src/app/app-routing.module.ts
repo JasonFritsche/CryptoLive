@@ -5,7 +5,7 @@ import { HomeComponent } from './components/sidenav/home/home.component';
 
 const routes: Routes = [
   { path: 'Home', component: HomeComponent },
-  { path: 'Latest', component: CurrentCoinComponent },
+  { path: 'Chart', component: CurrentCoinComponent },
   { path: '', redirectTo: '/Home', pathMatch: 'full' },
 ];
 
