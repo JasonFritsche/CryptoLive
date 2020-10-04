@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 
@@ -21,8 +22,9 @@ import { NavbarComponent } from './components/sidenav/navbar/navbar.component';
 import { CurrentCoinComponent } from './components/sidenav/current-coin/current-coin.component';
 import { ChartComponent } from './components/chart/chart.component';
 import { HomeComponent } from './components/sidenav/home/home.component';
-import { CoinTableComponent } from './components/sidenav/home/coin-card/coin-table.component';
+import { CoinTableComponent } from './components/sidenav/home/coin-table/coin-table.component';
 import { ValueChangeDirective } from './directives/value-change.directive';
+import { InfoDialogComponent } from './components/sidenav/navbar/info-dialog/info-dialog.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +36,11 @@ import { ValueChangeDirective } from './directives/value-change.directive';
     HomeComponent,
     CoinTableComponent,
     ValueChangeDirective,
+    InfoDialogComponent,
   ],
   imports: [
     HighchartsChartModule,
+    MatDialogModule,
     MatTableModule,
     MatSidenavModule,
     MatToolbarModule,
