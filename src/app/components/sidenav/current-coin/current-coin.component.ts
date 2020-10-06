@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { pluck, switchMap, takeUntil } from 'rxjs/operators';
 import { CoinService } from 'src/app/services/coin.service';
 
 @Component({
@@ -12,9 +11,8 @@ export class CurrentCoinComponent implements OnInit {
   public selectedValue = '';
   public currentCoinData: any = [];
   public selectedCoinData: any = {};
-  public selectedCoindId: number = null;
+  public selectedCoindId: number;
   public coinroutedata;
-  id: any;
   paramsSub: any;
 
   constructor(
@@ -24,13 +22,12 @@ export class CurrentCoinComponent implements OnInit {
 
   ngOnInit(): void {
     this.coinService.currentCoinData().subscribe((res) => {
-      console.log(res);
       this.currentCoinData = res;
       this.updateChartData();
     });
     this.paramsSub = this.route.params.subscribe((params) => {
-      this.id = parseInt(params['id']);
-      this.onSelectionChange(this.id);
+      this.selectedCoindId = parseInt(params['id']);
+      this.onSelectionChange(this.selectedCoindId);
     });
   }
 
@@ -39,11 +36,10 @@ export class CurrentCoinComponent implements OnInit {
   }
 
   public updateChartData() {
-    if (this.selectedCoindId !== null) {
-      this.selectedCoinData = this.currentCoinData.find(
-        (coin) => coin.id === this.selectedCoindId
-      );
-    }
+    const coinId = isNaN(this.selectedCoindId) ? 1 : this.selectedCoindId;
+    this.selectedCoinData = this.currentCoinData.find(
+      (coin) => coin.id === coinId
+    );
   }
 
   ngOnDestroy() {

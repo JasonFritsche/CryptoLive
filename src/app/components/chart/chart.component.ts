@@ -27,18 +27,20 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(): void {}
   ngOnChanges() {
-    if (this.selectedCoinData.history !== undefined) {
-      this.chartData = [...this.selectedCoinData.history.map(Number)];
-      this.chartOptions.title = {
-        text: this.selectedCoinData.name,
-      };
-      this.chartOptions.series = [
-        {
-          type: 'line',
-          data: this.chartData,
-        },
-      ];
-      this.updateChart = true;
+    if (this.selectedCoinData !== undefined) {
+      if (this.selectedCoinData.history !== undefined) {
+        this.chartData = [...this.selectedCoinData.history.map(Number)];
+        this.chartOptions.title = {
+          text: this.selectedCoinData.name,
+        };
+        this.chartOptions.series = [
+          {
+            type: 'line',
+            data: this.chartData,
+          },
+        ];
+        this.updateChart = true;
+      }
     }
   }
 }
