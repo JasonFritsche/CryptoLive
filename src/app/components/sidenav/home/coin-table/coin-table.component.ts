@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CoinService } from 'src/app/services/coin.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { CoinService } from 'src/app/services/coin.service';
   templateUrl: './coin-table.component.html',
   styleUrls: ['./coin-table.component.scss'],
 })
-export class CoinTableComponent implements OnInit, AfterViewInit {
+export class CoinTableComponent implements OnInit {
   public currentCoinData: any = [];
   public displayedColumns: string[] = [
     'icon',
@@ -22,7 +23,7 @@ export class CoinTableComponent implements OnInit, AfterViewInit {
   public iconUrl: string;
   public change: number;
 
-  constructor(private coinService: CoinService) {}
+  constructor(private coinService: CoinService, private router: Router) {}
 
   ngOnInit(): void {
     this.coinService.currentCoinData().subscribe((coins) => {
@@ -31,5 +32,8 @@ export class CoinTableComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngAfterViewInit() {}
+  public goToChart(el) {
+    console.log(el);
+    this.router.navigate(['/Chart', el.id]);
+  }
 }
