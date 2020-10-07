@@ -1,8 +1,9 @@
 <div class="coint-table-container">
-  <div *ngIf="currentCoinData.length > 0; else loaderBlock">
+  <div *ngIf="1 > 0; else loaderBlock">
     <table
       mat-table
-      [dataSource]="currentCoinData"
+      #cointable
+      [dataSource]="dataSource"
       matSort
       class="mat-elevation-z8"
     >
