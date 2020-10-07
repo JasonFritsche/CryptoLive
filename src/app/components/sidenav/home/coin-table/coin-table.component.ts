@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs';
 import { CoinService } from 'src/app/services/coin.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { CoinService } from 'src/app/services/coin.service';
   styleUrls: ['./coin-table.component.scss'],
 })
 export class CoinTableComponent implements OnInit {
-  public currentCoinData: any = [];
+  @ViewChild(MatTable) table: MatTable<any>;
   public displayedColumns: string[] = [
     'icon',
     'name',
@@ -22,18 +24,27 @@ export class CoinTableComponent implements OnInit {
   public name: string;
   public iconUrl: string;
   public change: number;
+  public dataSource = new MatTableDataSource();
 
-  constructor(private coinService: CoinService, private router: Router) {}
+  constructor(
+    private coinService: CoinService,
+    private router: Router,
+    private changeDetectorRefs: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
-    this.coinService.currentCoinData().subscribe((coins) => {
-      this.currentCoinData = coins;
-      console.log(this.currentCoinData);
+    this.refresh();
+  }
+
+  public refresh(): void {
+    this.coinService.currentCoinData().subscribe((res) => {
+      this.dataSource.data = res;
+      console.log(res);
     });
+    this.table !== undefined ? this.table.renderRows() : null;
   }
 
   public goToChart(el) {
-    console.log(el);
     this.router.navigate(['/Chart', el.id]);
   }
 }
