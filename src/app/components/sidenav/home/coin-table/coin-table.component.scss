@@ -11,6 +11,10 @@ table {
   width: 24px;
 }
 
+.coin-icon:hover {
+  cursor: pointer;
+}
+
 .coin-table-loader {
   display: flex;
   flex-direction: column;
