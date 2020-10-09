@@ -25,6 +25,8 @@ import { HomeComponent } from './components/sidenav/home/home.component';
 import { CoinTableComponent } from './components/sidenav/home/coin-table/coin-table.component';
 import { ValueChangeDirective } from './directives/value-change.directive';
 import { InfoDialogComponent } from './components/sidenav/navbar/info-dialog/info-dialog.component';
+import { MatSortModule } from '@angular/material/sort';
+import { CoinInfoComponent } from './components/sidenav/home/coin-table/coin-info/coin-info.component';
 
 @NgModule({
   declarations: [
@@ -37,11 +39,13 @@ import { InfoDialogComponent } from './components/sidenav/navbar/info-dialog/inf
     CoinTableComponent,
     ValueChangeDirective,
     InfoDialogComponent,
+    CoinInfoComponent,
   ],
   imports: [
     HighchartsChartModule,
     MatDialogModule,
     MatTableModule,
+    MatSortModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,

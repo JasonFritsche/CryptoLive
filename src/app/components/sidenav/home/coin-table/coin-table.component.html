@@ -2,16 +2,15 @@
   <div *ngIf="1 > 0; else loaderBlock">
     <table
       mat-table
-      #cointable
       [dataSource]="dataSource"
       matSort
       class="mat-elevation-z8"
     >
       <!-- icon Column -->
       <ng-container matColumnDef="icon">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+        <th mat-header-cell *matHeaderCellDef></th>
         <td mat-cell *matCellDef="let element">
-          <img class="coin-icon" src="{{ element.iconUrl }}" />
+          <img class="coin-icon" (click)="openCoinInfoDialog(element)" src="{{ element.iconUrl }}" />
         </td>
       </ng-container>
 
