@@ -1,5 +1,4 @@
 <div class="coint-table-container">
-  <div *ngIf="1 > 0; else loaderBlock">
     <table
       mat-table
       [dataSource]="dataSource"
@@ -17,7 +16,7 @@
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-        <td mat-cell *matCellDef="let element" (click)="goToChart(element)">
+        <td mat-cell *matCellDef="let element" (click)="goToChart(element)" class="name-element">
           {{ element.name }}
         </td>
       </ng-container>
@@ -25,13 +24,13 @@
       <!-- Volume Column -->
       <ng-container matColumnDef="volume">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Volume</th>
-        <td mat-cell *matCellDef="let element">{{ element.volume }}</td>
+        <td mat-cell *matCellDef="let element" class="number-element">{{ element.volume }}</td>
       </ng-container>
 
       <!-- Price Column -->
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
-        <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+        <td mat-cell *matCellDef="let element" class="number-element">{{ element.price }}</td>
       </ng-container>
 
       <!-- Change Column -->
@@ -45,10 +44,12 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-  </div>
   <ng-template #loaderBlock>
     <div class="coin-table-loader">
-      <mat-spinner></mat-spinner>
+      <mat-progress-spinner
+        color="primary"
+        mode="indeterminate">
+      </mat-progress-spinner>
       <h1>Loading coins...</h1>
     </div>
   </ng-template>

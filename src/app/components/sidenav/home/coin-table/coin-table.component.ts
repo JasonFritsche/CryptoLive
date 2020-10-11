@@ -1,9 +1,8 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { CoinService } from 'src/app/services/coin.service';
 import { CoinInfoComponent } from './coin-info/coin-info.component';
 
@@ -12,7 +11,8 @@ import { CoinInfoComponent } from './coin-info/coin-info.component';
   templateUrl: './coin-table.component.html',
   styleUrls: ['./coin-table.component.scss'],
 })
-export class CoinTableComponent implements OnInit {
+export class CoinTableComponent implements OnInit, AfterViewInit {
+  public isLoaded: boolean = false;
   @ViewChild(MatSort) sort: MatSort;
   public displayedColumns: string[] = [
     'icon',
@@ -21,12 +21,7 @@ export class CoinTableComponent implements OnInit {
     'price',
     'change',
   ];
-  public volume: number;
-  public symbol: string;
-  public price: string;
-  public name: string;
-  public iconUrl: string;
-  public change: number;
+
   public dataSource = new MatTableDataSource();
 
   constructor(
@@ -37,12 +32,14 @@ export class CoinTableComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoaded = false;
     this.refresh();
   }
 
   public refresh(): void {
     this.coinService.currentCoinData().subscribe((res) => {
       this.dataSource.data = res;
+      this.isLoaded = true;
     });
     this.changeDetectorRefs.detectChanges();
   }

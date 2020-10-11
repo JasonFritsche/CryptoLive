@@ -12,7 +12,7 @@ export class CoinService {
   private stopPolling = new Subject();
 
   constructor(private http: HttpClient) {
-    this.currentCoinData$ = timer(1, 2000).pipe(
+    this.currentCoinData$ = timer(1, 20000).pipe(
       switchMap(() =>
         this.http
           .get<any>(`${this.coinsApiUrl}`)
