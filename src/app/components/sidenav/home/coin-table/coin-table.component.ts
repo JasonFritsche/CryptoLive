@@ -58,4 +58,8 @@ export class CoinTableComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
+
+  public getInfoToolTip(el): string {
+    return `Show ${el.name} information`;
+  }
 }
