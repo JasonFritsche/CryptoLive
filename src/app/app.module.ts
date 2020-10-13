@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { MatInputModule } from '@angular/material/input';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 
@@ -54,6 +55,7 @@ import { CoinInfoComponent } from './components/sidenav/home/coin-table/coin-inf
     MatFormFieldModule,
     MatSelectModule,
     MatProgressSpinnerModule,
+    MatInputModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
