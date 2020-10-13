@@ -40,7 +40,7 @@ th {
 
 .name-element:hover {
   cursor: pointer;
-  font-size: 1.25em;
+  color: lighten($base-color, 12);
 }
 
 .coin-table-loader {
@@ -50,4 +50,14 @@ th {
   h1 {
     font-size: 0.9em;
   }
+}
+
+.coin-table-search {
+  background-color: darken($base-color, 65);
+  color: $base-color;
+  padding: 0 1em;
+}
+
+.search-form-field {
+  width: 92%;
 }

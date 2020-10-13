@@ -1,0 +1,16 @@
+.close-icon {
+  align-self: baseline;
+}
+.close-icon:hover {
+  cursor: pointer;
+}
+
+h1 {
+  flex: 1;
+}
+
+.coin-info-heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
