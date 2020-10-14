@@ -56,6 +56,20 @@ th {
   background-color: darken($base-color, 65);
   color: $base-color;
   padding: 0 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-icon {
+  transition-property: transform;
+  transition-duration: 1.2s;
+  transition-delay: 0.5s;
+}
+
+.search-icon:hover {
+  cursor: pointer;
+  transform: scale(1.4);
 }
 
 .search-form-field {
