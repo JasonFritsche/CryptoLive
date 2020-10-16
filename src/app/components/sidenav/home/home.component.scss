@@ -1,11 +1,10 @@
+@import "../../../../sass/mixins";
+
 .home-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 3em;
-  app-coin-table {
-    width: 60%;
-  }
 }
 
 .home-header {
@@ -33,5 +32,27 @@
   }
   100% {
     background-position: 500%;
+  }
+}
+
+@include phone {
+  app-coin-table {
+    width: 99%;
+  }
+}
+
+@include tablet {
+  app-coin-table {
+    width: 92%;
+  }
+}
+@include desktop-small {
+  app-coin-table {
+    width: 80%;
+  }
+}
+@include desktop {
+  app-coin-table {
+    width: 75%;
   }
 }

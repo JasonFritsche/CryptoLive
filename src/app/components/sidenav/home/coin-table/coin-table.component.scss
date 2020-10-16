@@ -1,10 +1,12 @@
+@import "../../../../../sass/_mixins";
+
 $base-color: #d6d6d6;
 
 .coin-table-container {
   margin: 1.3em 0.2em 4em 0.2em;
 }
 
-table {
+.mat-table {
   width: 100%;
   background-color: darken($base-color, 65);
 }
@@ -14,8 +16,6 @@ table {
 }
 
 .coin-icon {
-  height: 24px;
-  width: 24px;
   transition: transform 0.2s;
 }
 
@@ -24,9 +24,8 @@ table {
   transform: scale(1.9);
 }
 
-th {
+mat-header-cell {
   color: $base-color;
-  font-size: 1.25em;
 }
 
 .number-element {
@@ -35,7 +34,6 @@ th {
 
 .name-element {
   color: lighten($base-color, 6);
-  font-size: 1.1em;
 }
 
 .name-element:hover {
@@ -74,4 +72,177 @@ th {
 
 .search-form-field {
   width: 92%;
+}
+
+@include phone {
+  mat-header-cell {
+    font-size: 0.65em;
+  }
+
+  .name-element {
+    font-size: 0.6em;
+  }
+
+  .number-element {
+    font-size: 0.6em;
+  }
+
+  .coin-icon {
+    height: 1.15em;
+    width: 1.15em;
+  }
+
+  .change-element {
+    font-size: 0.68em;
+  }
+
+  @include mat-table-columns(
+    (
+      icon: (
+        width: 1.25rem,
+        color: gray,
+      ),
+      name: (
+        width: 5.5rem,
+      ),
+      volume: (
+        width: 6rem,
+      ),
+      price: (
+        width: 6rem,
+      ),
+      change: (
+        width: 4rem,
+      ),
+    )
+  );
+}
+
+@include tablet {
+  mat-header-cell {
+    font-size: 1.05em;
+  }
+
+  .name-element {
+    font-size: 0.97em;
+  }
+
+  .number-element {
+    font-size: 0.93em;
+  }
+
+  .coin-icon {
+    height: 1.85em;
+    width: 1.85em;
+  }
+
+  .change-element {
+    font-size: 1.1em;
+  }
+  @include mat-table-columns(
+    (
+      icon: (
+        width: 1.8rem,
+        color: gray,
+      ),
+      name: (
+        width: 9.5rem,
+      ),
+      volume: (
+        width: 8.5rem,
+      ),
+      price: (
+        width: 8.5rem,
+      ),
+      change: (
+        width: 7.5rem,
+      ),
+    )
+  );
+}
+
+@include desktop-small {
+  mat-header-cell {
+    font-size: 1.05em;
+  }
+
+  .name-element {
+    font-size: 1em;
+  }
+
+  .number-element {
+    font-size: 0.98em;
+  }
+
+  .coin-icon {
+    height: 1.95em;
+    width: 1.95em;
+  }
+
+  .change-element {
+    font-size: 1.3em;
+  }
+  @include mat-table-columns(
+    (
+      icon: (
+        width: 1.82rem,
+        color: gray,
+      ),
+      name: (
+        width: 9.9rem,
+      ),
+      volume: (
+        width: 9rem,
+      ),
+      price: (
+        width: 9rem,
+      ),
+      change: (
+        width: 7.9rem,
+      ),
+    )
+  );
+}
+
+@include desktop {
+  mat-header-cell {
+    font-size: 1.05em;
+  }
+
+  .name-element {
+    font-size: 0.97em;
+  }
+
+  .number-element {
+    font-size: 0.93em;
+  }
+
+  .coin-icon {
+    height: 1.85em;
+    width: 1.85em;
+  }
+
+  .change-element {
+    font-size: 1.1em;
+  }
+  @include mat-table-columns(
+    (
+      icon: (
+        width: 1.7rem,
+        color: gray,
+      ),
+      name: (
+        width: 9rem,
+      ),
+      volume: (
+        width: 8rem,
+      ),
+      price: (
+        width: 8rem,
+      ),
+      change: (
+        width: 7rem,
+      ),
+    )
+  );
 }
