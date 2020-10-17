@@ -15,6 +15,18 @@ export class ChartComponent implements OnInit {
     title: {
       text: 'Current Coin',
     },
+    chart: {
+      backgroundColor:"#333",
+      borderRadius: 5,
+      borderColor: "#1c1c1c",
+    },
+    yAxis: {
+      labels: {
+        style: {
+          color: "#00f2ff"
+        }
+      }
+    },
     series: [
       {
         type: 'line',
@@ -25,7 +37,8 @@ export class ChartComponent implements OnInit {
   updateChart: boolean = false;
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
   ngOnChanges() {
     if (this.selectedCoinData !== undefined) {
       if (this.selectedCoinData.history !== undefined) {

@@ -21,3 +21,7 @@ body {
 .mat-drawer-inner-container {
   background-color: darken($base-color, 78);
 }
+
+.mat-select-panel {
+  transform: translate(0px, 26px) !important;
+}
