@@ -1,4 +1,5 @@
 @import "../../../../sass/mixins";
+@import "../../../../sass/variables";
 
 .home-container {
   display: flex;
@@ -12,12 +13,16 @@
   align-items: center;
   flex-direction: row;
   position: relative;
-  font-family: "Contrail One", cursive;
+  font-family: "Contrail One", sans-serif;
   text-transform: uppercase;
-  font-size: 2em;
   letter-spacing: 0.1em;
   overflow: hidden;
-  background: linear-gradient(90deg, #000, #fff, #000);
+  background: linear-gradient(
+    90deg,
+    darken($darkest, 10),
+    lighten($base-color, 10),
+    darken($darkest, 10)
+  );
   background-repeat: no-repeat;
   background-size: 70%;
   animation: animate 2.2s linear infinite;
@@ -36,22 +41,34 @@
 }
 
 @include phone {
+  .home-header {
+    font-size: 1.4em;
+  }
   app-coin-table {
     width: 99%;
   }
 }
 
 @include tablet {
+  .home-header {
+    font-size: 1.6em;
+  }
   app-coin-table {
     width: 92%;
   }
 }
 @include desktop-small {
+  .home-header {
+    font-size: 1.7em;
+  }
   app-coin-table {
     width: 80%;
   }
 }
 @include desktop {
+  .home-header {
+    font-size: 1.85em;
+  }
   app-coin-table {
     width: 75%;
   }

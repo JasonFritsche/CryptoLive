@@ -1,15 +1,24 @@
+@import "../../../sass/variables";
+
 .sidenav-container {
   height: 100%;
-  background-color: #000;
+  background-color: $darkest;
 }
 
 .sidenav-list-items {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   margin: 0.5em 0.3em 0 0.3em;
   a {
-    margin: 0.24em;
+    margin: 0.54em;
     text-decoration: none;
+    color: $base-color;
+    transition: color 2s;
+    font-size: 0.9em;
   }
+  a:hover {
+    color: darken($base-color, 55);
+  }
+  width: 6em;
 }

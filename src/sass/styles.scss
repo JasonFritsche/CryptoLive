@@ -1,6 +1,6 @@
 @import "./mixins";
+@import "./variables";
 @import url("https://fonts.googleapis.com/css2?family=Contrail+One&display=swap");
-$base-color: #d6d6d6;
 
 html,
 body {
@@ -16,4 +16,8 @@ body {
 }
 .mat-form-field-underline {
   background-color: $base-color !important;
+}
+
+.mat-drawer-inner-container {
+  background-color: darken($base-color, 78);
 }

@@ -41,7 +41,7 @@
       <!-- Price Column -->
       <ng-container matColumnDef="price">
         <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-        <mat-cell *matCellDef="let element" class="number-element">{{ element.price }}</mat-cell>
+        <mat-cell *matCellDef="let element" class="number-element">{{ element.price | currency}}</mat-cell>
       </ng-container>
 
       <!-- Change Column -->
