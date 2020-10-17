@@ -1,9 +1,11 @@
 <mat-toolbar color="primary">
-  <a class="nav-icon">
+  <a class="nav-icon icon">
     <mat-icon (click)="toggleSideNav()">menu</mat-icon>
   </a>
   <span class="filler"></span>
-  <mat-icon routerLink="Home">home</mat-icon>
-  <mat-icon routerLink="Chart">poll</mat-icon>
-  <mat-icon (click)="openInfoDialog()">info</mat-icon>
+  <div class="nav-links">
+    <mat-icon class="home-icon icon" routerLink="Home">home</mat-icon>
+    <mat-icon class="chart-icon icon" routerLink="Chart">poll</mat-icon>
+    <mat-icon class="info-icon icon" (click)="openInfoDialog()">info</mat-icon>
+  </div>
 </mat-toolbar>

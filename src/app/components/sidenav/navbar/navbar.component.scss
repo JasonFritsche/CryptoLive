@@ -2,8 +2,42 @@ mat-toolbar {
   height: 8vh;
 }
 
+.nav-icon {
+  align-self: center;
+  padding-top: 7px;
+  :hover {
+    color: rgb(165, 162, 162);
+  }
+}
+
+.nav-links {
+  align-self: center;
+  padding-top: 7px;
+  mat-icon {
+    padding-right: 0.6em;
+  }
+}
+
+.home-icon:hover {
+  color: rgb(219, 36, 180);
+}
+
+.chart-icon:hover {
+  color: rgb(42, 205, 211);
+}
+
+.info-icon:hover {
+  color: rgb(214, 134, 13);
+}
+
 mat-icon:hover {
   cursor: pointer;
+}
+
+.icon {
+  transition-property: color 0.025s ease;
+  transition-duration: 1.2s;
+  transition-delay: 0.5s;
 }
 
 .filler {
