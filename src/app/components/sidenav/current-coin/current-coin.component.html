@@ -1,18 +1,19 @@
 <div class="current-coin-cointainer">
-  <div class="coin-select-wrapper">
-    <mat-form-field>
-      <mat-label>Select Coin</mat-label>
-      <mat-select
-        [ngModel]="selectedValue"
-        (ngModelChange)="onSelectionChange($event)"
-      >
-        <mat-option *ngFor="let coin of currentCoinData" [value]="coin.id">{{
-          coin.name
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
   <div class="current-chart-wrapper">
     <app-chart [selectedCoinData]="selectedCoinData"></app-chart>
+    <div class="coin-select-wrapper">
+      <mat-form-field>
+        <mat-label>Select Coin</mat-label>
+        <mat-select
+          disableOptionCentering
+          [ngModel]="selectedValue"
+          (ngModelChange)="onSelectionChange($event)"
+        >
+          <mat-option *ngFor="let coin of currentCoinData" [value]="coin.id">{{
+            coin.name
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 </div>
