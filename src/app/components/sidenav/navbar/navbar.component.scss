@@ -1,3 +1,5 @@
+@import "../../../../sass/variables";
+
 mat-toolbar {
   height: 8vh;
 }
@@ -5,8 +7,9 @@ mat-toolbar {
 .nav-icon {
   align-self: center;
   padding-top: 7px;
+  color: lighten($base-color, 10);
   :hover {
-    color: rgb(165, 162, 162);
+    color: darken($base-color, 10);
   }
 }
 
@@ -19,15 +22,15 @@ mat-toolbar {
 }
 
 .home-icon:hover {
-  color: rgb(219, 36, 180);
+  color: $home-icon;
 }
 
 .chart-icon:hover {
-  color: rgb(42, 205, 211);
+  color: $chart-icon;
 }
 
 .info-icon:hover {
-  color: rgb(214, 134, 13);
+  color: $info-icon;
 }
 
 mat-icon:hover {
