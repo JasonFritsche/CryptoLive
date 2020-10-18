@@ -21,10 +21,18 @@ export class ChartComponent implements OnInit {
       borderColor: "#1c1c1c",
     },
     yAxis: {
+      title: {
+        text: "Price"
+      },
       labels: {
         style: {
           color: "#00f2ff"
         }
+      }
+    },
+    legend: {
+      title:{
+        text: "Last 24 Hours"
       }
     },
     series: [
@@ -49,7 +57,7 @@ export class ChartComponent implements OnInit {
         this.chartOptions.series = [
           {
             type: 'line',
-            data: this.chartData,
+            data: this.chartData.slice(2),
           },
         ];
         this.updateChart = true;

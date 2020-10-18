@@ -8,6 +8,7 @@ import { CoinService } from 'src/app/services/coin.service';
   styleUrls: ['./current-coin.component.scss'],
 })
 export class CurrentCoinComponent implements OnInit {
+  public isLoaded: boolean = false;
   public selectedValue = '';
   public currentCoinData: any = [];
   public selectedCoinData: any = {};
@@ -21,11 +22,14 @@ export class CurrentCoinComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.isLoaded = false;
     this.coinService.currentCoinData().subscribe((res) => {
       this.currentCoinData = res;
       this.updateChartData();
+      console.log(this.selectedCoinData)
     });
     this.paramsSub = this.route.params.subscribe((params) => {
+      this.isLoaded = false;
       this.selectedCoindId = parseInt(params['id']);
       this.onSelectionChange(this.selectedCoindId);
     });
@@ -40,6 +44,7 @@ export class CurrentCoinComponent implements OnInit {
     this.selectedCoinData = this.currentCoinData.find(
       (coin) => coin.id === coinId
     );
+    this.isLoaded = true;
   }
 
   ngOnDestroy() {
