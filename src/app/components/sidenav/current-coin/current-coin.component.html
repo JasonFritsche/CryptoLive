@@ -1,6 +1,17 @@
-<div class="current-coin-cointainer">
+<div class="current-coin-container">
   <div class="current-chart-wrapper">
-    <app-chart [selectedCoinData]="selectedCoinData"></app-chart>
+    <div *ngIf="isLoaded; else headerLoader" class="current-chart-header">
+      <img class="coin-icon"
+           src="{{ selectedCoinData.iconUrl }}" />
+      <h1>{{selectedCoinData.name}}</h1>
+    </div>
+    <ng-template #headerLoader>
+      loading
+    </ng-template>
+    <div class="current-chart-body">
+    <app-chart *ngIf="isLoaded; else chartLoader" [selectedCoinData]="selectedCoinData">
+    </app-chart>
+    <ng-template #chartLoader>loading</ng-template>
     <div class="coin-select-wrapper">
       <mat-form-field>
         <mat-label>Select Coin</mat-label>
@@ -14,6 +25,7 @@
           }}</mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
     </div>
   </div>
 </div>
