@@ -23,20 +23,21 @@ export class CurrentCoinComponent implements OnInit {
 
   ngOnInit(): void {
     this.isLoaded = false;
-    this.coinService.currentCoinData().subscribe((res) => {
-      this.currentCoinData = res;
-      this.updateChartData();
-      console.log(this.selectedCoinData)
-    });
-    this.paramsSub = this.route.params.subscribe((params) => {
-      this.isLoaded = false;
-      this.selectedCoindId = parseInt(params['id']);
-      this.onSelectionChange(this.selectedCoindId);
-    });
+    // this.coinService.currentCoinData().subscribe((res) => {
+    //   this.currentCoinData = res;
+    //   this.updateChartData();
+    //   console.log(this.selectedCoinData);
+    // });
+    // this.paramsSub = this.route.params.subscribe((params) => {
+    //   this.isLoaded = false;
+    //   this.selectedCoindId = parseInt(params['id']);
+    //   this.onSelectionChange(this.selectedCoindId);
+    // });
   }
 
   public onSelectionChange(coinId: number): void {
-    this.selectedCoindId = coinId;
+    this.isLoaded = false;
+    // this.selectedCoindId = coinId;
   }
 
   public updateChartData() {
