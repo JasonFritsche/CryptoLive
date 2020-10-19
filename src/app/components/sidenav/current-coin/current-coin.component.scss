@@ -16,12 +16,19 @@
   border: 1px solid darken($darkest, 10);
   border-radius: 5px;
   height: 80vh;
+  width: 60vw;
 }
 
 .current-chart-body {
   display: flex;
   flex-direction: row;
   align-items: start;
+  width: 60vw;
+}
+
+.chart-loader {
+  margin: auto;
+  margin-top: 6em;
 }
 
 .current-chart-header {
@@ -33,13 +40,49 @@
   }
 }
 
+.header-loader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .coin-select-wrapper {
-  .mat-form-field {
-    padding: 0 2em;
-  }
+  margin-left: auto;
 }
 
 .coin-icon {
   width: 2em;
   height: 2em;
+}
+
+.loader-text {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    darken($darkest, 5),
+    lighten($base-color, 1),
+    darken($darkest, 5)
+  );
+  background-repeat: no-repeat;
+  background-size: 70%;
+  animation: animate 3s linear infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }

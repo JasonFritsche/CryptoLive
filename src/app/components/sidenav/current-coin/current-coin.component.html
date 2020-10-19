@@ -1,31 +1,48 @@
 <div class="current-coin-container">
   <div class="current-chart-wrapper">
     <div *ngIf="isLoaded; else headerLoader" class="current-chart-header">
-      <img class="coin-icon"
-           src="{{ selectedCoinData.iconUrl }}" />
-      <h1>{{selectedCoinData.name}}</h1>
+      <img class="coin-icon" src="{{ selectedCoinData.iconUrl }}" />
+      <h1>{{ selectedCoinData.name }}</h1>
     </div>
     <ng-template #headerLoader>
-      loading
+      <div class="header-loader">
+        <mat-spinner
+          class="coin-icon"
+          color="accent"
+          [diameter]="30"
+        ></mat-spinner>
+        <div class="loader-text">
+          <h1>Loading...</h1>
+        </div>
+      </div>
     </ng-template>
     <div class="current-chart-body">
-    <app-chart *ngIf="isLoaded; else chartLoader" [selectedCoinData]="selectedCoinData">
-    </app-chart>
-    <ng-template #chartLoader>loading</ng-template>
-    <div class="coin-select-wrapper">
-      <mat-form-field>
-        <mat-label>Select Coin</mat-label>
-        <mat-select
-          disableOptionCentering
-          [ngModel]="selectedValue"
-          (ngModelChange)="onSelectionChange($event)"
-        >
-          <mat-option *ngFor="let coin of currentCoinData" [value]="coin.id">{{
-            coin.name
-          }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+      <app-chart
+        *ngIf="isLoaded; else chartLoader"
+        [selectedCoinData]="selectedCoinData"
+      >
+      </app-chart>
+      <ng-template #chartLoader>
+        <div class="chart-loader">
+          <mat-spinner color="accent"></mat-spinner>
+        </div>
+      </ng-template>
+      <div class="coin-select-wrapper">
+        <mat-form-field>
+          <mat-label>Select Coin</mat-label>
+          <mat-select
+            disableOptionCentering
+            [ngModel]="selectedValue"
+            (ngModelChange)="onSelectionChange($event)"
+          >
+            <mat-option
+              *ngFor="let coin of currentCoinData"
+              [value]="coin.id"
+              >{{ coin.name }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
   </div>
 </div>
