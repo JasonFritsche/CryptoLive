@@ -1,29 +1,14 @@
 @import "../../../../sass/variables";
 
+mat-card {
+  background-color: $darkest;
+  box-shadow: none !important;
+}
+
 .current-coin-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.current-chart-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  background-color: $darker;
-  margin: 1em;
-  padding: 1em;
-  border: 1px solid darken($darkest, 10);
-  border-radius: 5px;
-  height: 80vh;
-  width: 60vw;
-}
-
-.current-chart-body {
-  display: flex;
-  flex-direction: row;
-  align-items: start;
-  width: 60vw;
 }
 
 .chart-loader {
@@ -40,6 +25,13 @@
   }
 }
 
+.chart-header-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 3em;
+}
+
 .header-loader {
   display: flex;
   flex-direction: row;
@@ -48,6 +40,7 @@
 
 .coin-select-wrapper {
   margin-left: auto;
+  padding-right: 1.5em;
 }
 
 .coin-icon {
