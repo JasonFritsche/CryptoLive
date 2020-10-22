@@ -1,30 +1,20 @@
-<div class="current-coin-container">
-  <div class="current-chart-wrapper">
-    <div *ngIf="isLoaded; else headerLoader" class="current-chart-header">
-      <img class="coin-icon" src="{{ selectedCoinData.iconUrl }}" />
-      <h1>{{ selectedCoinData.name }}</h1>
-    </div>
-    <ng-template #headerLoader>
-      <div class="header-loader">
-        <mat-spinner
-          class="coin-icon"
-          color="accent"
-          [diameter]="30"
-        ></mat-spinner>
-        <div class="loader-text">
-          <h1>Loading...</h1>
-        </div>
+<mat-card>
+  <mat-card-actions>
+    <div class="chart-header-wrapper">
+      <div *ngIf="isLoaded; else headerLoader" class="current-chart-header">
+        <img class="coin-icon" src="{{ selectedCoinData.iconUrl }}" />
+        <h1>{{ selectedCoinData.name }}</h1>
       </div>
-    </ng-template>
-    <div class="current-chart-body">
-      <app-chart
-        *ngIf="isLoaded; else chartLoader"
-        [selectedCoinData]="selectedCoinData"
-      >
-      </app-chart>
-      <ng-template #chartLoader>
-        <div class="chart-loader">
-          <mat-spinner color="accent"></mat-spinner>
+      <ng-template #headerLoader>
+        <div class="header-loader">
+          <mat-spinner
+            class="coin-icon"
+            color="accent"
+            [diameter]="30"
+          ></mat-spinner>
+          <div class="loader-text">
+            <h1>Loading...</h1>
+          </div>
         </div>
       </ng-template>
       <div class="coin-select-wrapper">
@@ -44,5 +34,18 @@
         </mat-form-field>
       </div>
     </div>
-  </div>
-</div>
+  </mat-card-actions>
+
+  <mat-card-content>
+    <app-chart
+      *ngIf="isLoaded; else chartLoader"
+      [selectedCoinData]="selectedCoinData"
+    >
+    </app-chart>
+    <ng-template #chartLoader>
+      <div class="chart-loader">
+        <mat-spinner color="accent"></mat-spinner>
+      </div>
+    </ng-template>
+  </mat-card-content>
+</mat-card>

@@ -1,16 +1,7 @@
-<div
-  id="container"
-  style="
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  "
+<highcharts-chart
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+  [(update)]="updateChart"
+  style="width: 100%; display: block"
 >
-  <highcharts-chart
-    [Highcharts]="Highcharts"
-    [options]="chartOptions"
-    [(update)]="updateChart"
-  >
-  </highcharts-chart>
-</div>
+</highcharts-chart>
