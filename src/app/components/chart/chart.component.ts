@@ -91,14 +91,17 @@ export class ChartComponent implements OnInit {
     if (this.selectedCoinData !== undefined) {
       if (this.selectedCoinData.history !== undefined) {
         this.chartData = [
-          ...this.selectedCoinData.history.slice(2).map(Number),
+          ...this.selectedCoinData.history.slice(1).map(Number),
         ];
         this.chartDates = this.chartData.map((el, i) => {
           const hour = new Date().getHours() - (24 - i);
           const date = new Date();
           date.setHours(hour);
           return `${this.monthNames[date.getMonth()]},${date.getDate()} @ ${
-            date.getHours() === 0 ? 'midnight' : date.getHours() + ':00'
+            date.getHours() === 0
+              ? 'midnight'
+              : (i !== 25 ? date.getHours() : date.getHours() - 1) +
+                (i !== 25 ? ':00' : ':' + date.getMinutes())
           }`;
         });
         this.formattedChartData = this.chartDates.map((e, i) => {
