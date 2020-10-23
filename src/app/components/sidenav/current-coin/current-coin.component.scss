@@ -1,4 +1,5 @@
 @import "../../../../sass/variables";
+@import "../../../../sass/mixins";
 
 mat-card {
   background-color: $darkest;
@@ -12,8 +13,11 @@ mat-card {
 }
 
 .chart-loader {
-  margin: auto;
-  margin-top: 6em;
+  text-align: center;
+  mat-spinner {
+    margin: auto;
+    margin-top: 6em;
+  }
 }
 
 .current-chart-header {
@@ -30,6 +34,9 @@ mat-card {
   flex-direction: row;
   align-items: center;
   padding-left: 3em;
+  h1 {
+    padding-left: 6px;
+  }
 }
 
 .header-loader {
@@ -49,6 +56,7 @@ mat-card {
 }
 
 .loader-text {
+  padding-top: 0.8em;
   display: inline-flex;
   align-items: center;
   flex-direction: row;
@@ -71,11 +79,38 @@ mat-card {
   -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
 
+.coin-options {
+  background-color: darken($dark, 9);
+  color: $base-color;
+}
+
+.coin-options:hover {
+  background-color: $darkest;
+  color: darken($base-color, 5);
+}
+
+::ng-deep .mat-select-value-text {
+  color: $base-color !important;
+}
+
+::ng-deep .mat-select-arrow {
+  color: $base-color !important;
+}
+
 @keyframes animate {
   0% {
     background-position: -500%;
   }
   100% {
     background-position: 500%;
+  }
+}
+
+@include phone {
+  .loader-text h1 {
+    font-size: 0.6em;
+  }
+  .coin-select-wrapper {
+    padding-right: 1em;
   }
 }
