@@ -12,9 +12,6 @@
             color="accent"
             [diameter]="30"
           ></mat-spinner>
-          <div class="loader-text">
-            <h1>Loading...</h1>
-          </div>
         </div>
       </ng-template>
       <div class="coin-select-wrapper">
@@ -24,10 +21,12 @@
             disableOptionCentering
             [ngModel]="selectedValue"
             (ngModelChange)="onSelectionChange($event)"
+            class="option-coin-name"
           >
             <mat-option
               *ngFor="let coin of currentCoinData"
               [value]="coin.id"
+              class="coin-options"
               >{{ coin.name }}</mat-option
             >
           </mat-select>
@@ -45,6 +44,9 @@
     <ng-template #chartLoader>
       <div class="chart-loader">
         <mat-spinner color="accent"></mat-spinner>
+        <div class="loader-text">
+          <h1>Loading...</h1>
+        </div>
       </div>
     </ng-template>
   </mat-card-content>
