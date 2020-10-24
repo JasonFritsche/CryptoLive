@@ -7,7 +7,7 @@
 
 .mat-table {
   width: 100%;
-  background-color: darken($darker, 11);
+  background-color: darken($darker, 12);
 }
 
 .mat-row:hover {
@@ -50,7 +50,7 @@ mat-header-cell {
 }
 
 .coin-table-search {
-  background-color: darken($darker, 11);
+  background-color: darken($darker, 12);
   color: $base-color;
   padding: 0 1em;
   display: flex;
@@ -83,30 +83,30 @@ mat-header-cell {
   }
 
   .name-element {
-    font-size: 0.6em;
+    font-size: 0.7em;
   }
 
   .number-element {
-    font-size: 0.6em;
+    font-size: 0.63em;
   }
 
   .coin-icon {
-    height: 1.15em;
-    width: 1.15em;
+    height: 1.14em;
+    width: 1.14em;
   }
 
   .change-element {
-    font-size: 0.68em;
+    font-size: 0.78em;
   }
 
   @include mat-table-columns(
     (
       icon: (
-        width: 1.25rem,
+        width: 1.17rem,
         color: gray,
       ),
       name: (
-        width: 5.9rem,
+        width: 6rem,
       ),
       volume: (
         width: 5.9rem,
