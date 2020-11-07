@@ -1,4 +1,10 @@
-import { ChangeDetectorRef, Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+  AfterViewInit,
+  ViewChild,
+} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -41,7 +47,10 @@ export class CoinTableComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.isLoaded = false;
     this.refresh();
-    this.dataSource.filterPredicate = function(data: Coin, filter: string): boolean {
+    this.dataSource.filterPredicate = function (
+      data: Coin,
+      filter: string
+    ): boolean {
       return data.name.toLowerCase().includes(filter);
     };
   }
@@ -58,11 +67,12 @@ export class CoinTableComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/Chart', el.id]);
   }
 
-  public openCoinInfoDialog(el):void {
+  public openCoinInfoDialog(el): void {
     const dialogRef = this.dialog.open(CoinInfoComponent, {
       data: el,
       width: '70vw',
       panelClass: 'coin-info-dialog',
+      height: '70vh',
     });
   }
 
